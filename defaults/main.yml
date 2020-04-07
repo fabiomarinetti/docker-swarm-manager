@@ -1,0 +1,8 @@
+---
+# defaults file for fmarinetti.swarm-manager
+#
+# the network interface leave blank for default
+network_interface:
+#
+# the port where manager listen on
+manager_port: 3277

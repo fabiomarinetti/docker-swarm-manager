@@ -1,0 +1,3 @@
+---
+# vars file for swarm-manager
+ipaddress: "{% if network_interface %}{{ hostvars[inventory_hostname]['ansible_facts'][network_interface]['ipv4']['address'] }}{% else %}{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}{% endif %}" 

@@ -1,0 +1,21 @@
+---
+# tasks file for swarm-manager
+- name: "detach {{ inventory_hostname }} manager from swarm"
+  command: "docker swarm leave --force"
+  ignore_errors: true
+  register: output
+  changed_when: output.rc == 0
+
+- name: init swarm manager
+  command: "docker swarm init --advertise-addr {{ ipaddress }}:{{ manager_port }}"
+  register: output
+  changed_when: output.rc == 0
+
+- name: get join command
+  command: "docker swarm join-token manager"
+  register: output
+  changed_when: output.rc == 0
+
+- name: dump join command
+  debug:
+    msg: "{{ output.stdout }}"
