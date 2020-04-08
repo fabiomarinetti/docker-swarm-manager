@@ -1,0 +1,16 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+  # test package is installed
+    - name: verify current node is part of swarm
+      assert:
+        that: ansible_local.swarm is defined and ansible_local.swarm.id is defined
+
+    - name: verify current ndoe is swarm manager
+      assert:
+        that: ansible_local.swarm.manager_status == 'Leader'
