@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/fabiomarinetti/docker_swarm_manager.svg?branch=master)](https://travis-ci.com/fabiomarinetti/docker_swarm_manager)
+[![Build Status](https://travis-ci.com/fabiomarinetti/docker-swarm-manager.svg?branch=master)](https://travis-ci.com/fabiomarinetti/docker-swarm-manager)
 
-fmarinetti.swarm-manager
+docker_swarm_manager
 =========
 
 This role configure a secure swarm master. The roles print out the swarm command  for joining slaves.
@@ -19,7 +19,7 @@ Role Variables
 Dependencies
 ------------
 
- - fmarinetti.docker-secured
+ - fabiomarinetti.fmarinetti_docker_secured
 
 Example Playbook
 ----------------
@@ -28,15 +28,5 @@ Create a swarm manager
 ```
    - hosts: manager
      roles: 
-       - fmarinetti.swarm-manager
+       - fabiomarinetti.docker_swarm_manager
 ```
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
