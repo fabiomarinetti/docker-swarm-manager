@@ -1,21 +1,31 @@
 ---
 # tasks file for swarm-manager
-- name: "detach {{ inventory_hostname }} manager from swarm"
-  command: "docker swarm leave --force"
-  ignore_errors: true
-  register: output
-  changed_when: output.rc == 0
+- name: "create facts.d directory"
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+
+- name: "deploy swarm.fact file"
+  copy:
+    src: files/swarm.fact
+    dest: /etc/ansible/facts.d/swarm.fact
+    mode: 0755
 
 - name: init swarm manager
   command: "docker swarm init --advertise-addr {{ ipaddress }}:{{ manager_port }}"
-  register: output
-  changed_when: output.rc == 0
+  register: init_output
+  changed_when: init_output.rc == 0
+  when: ansible_local.swarm is not defined or ansible_local.swarm.id is not defined
 
-- name: get join command
-  command: "docker swarm join-token manager"
-  register: output
-  changed_when: output.rc == 0
+- name: get token
+  command: "docker swarm join-token worker -q"
+  register: token_output
+  changed_when: token_output.rc != 0
 
 - name: dump join command
   debug:
-    msg: "{{ output.stdout }}"
+    msg: "docker swarm join --token {{ token_output.stdout }} {{ ipaddress }}:{{ manager_port }}"
+
+- name: store token in a fact
+  set_fact:
+    token: token_output.stdout

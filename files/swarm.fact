@@ -1,0 +1,17 @@
+#!/bin/bash
+
+docker node ls &>/dev/null
+if [ $? -eq 0 ]; then
+  docker node ls -f name=$HOSTNAME --format "{
+  \"id\":\"{{.ID}}\",
+  \"hostname\":\"{{.Hostname}}\",
+  \"status\":\"{{.Status}}\",
+  \"availability\":\"{{.Availability}}\",
+  \"manager_status\":\"{{.ManagerStatus}}\",
+  \"tls_status\":\"{{.TLSStatus}}\",
+  \"engine_version\":\"{{.EngineVersion}}\"
+}" 
+else
+  echo "{}"
+fi
+exit 0
