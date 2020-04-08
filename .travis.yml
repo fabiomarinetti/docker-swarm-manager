@@ -26,4 +26,4 @@ install:
 script:
   - molecule --version
   - ansible --version
-  - molecule test --scenario-name=${SCENARIO}
+  - $TRAVIS_BUILD_DIR/run_molecule.sh gcp test
