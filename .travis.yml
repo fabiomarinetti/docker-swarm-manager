@@ -4,7 +4,7 @@ python:
   - "3.6"
 
 env:
-  - GOOGLE_APPLICATION_CREDENTIALS=$TRAVIS_BUILD_DIR/secret.json SSH_USER=mpisellonio SSH_ID_FILE=$TRAVIS_BUILD_DIR/.ssh/id_rsa SCENARIO=gcp
+  - GOOGLE_APPLICATION_CREDENTIALS=$TRAVIS_BUILD_DIR/secret.json SSH_USER=mpisellonio SSH_ID_FILE=$TRAVIS_BUILD_DIR/.ssh/id_rsa SCENARIO=gcp SUFFIX=$TRAVIS_BUILD_ID
 
 before_install:
   # decrypt service-account-key
