@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/fabiomarinetti/fmarinetti.swarm-manager.svg?branch=master)](https://travis-ci.com/fabiomarinetti/fmarinetti.swarm-manager)
+[![Build Status](https://travis-ci.com/fabiomarinetti/docker_swarm_manager.svg?branch=master)](https://travis-ci.com/fabiomarinetti/docker_swarm_manager)
 
 fmarinetti.swarm-manager
 =========
