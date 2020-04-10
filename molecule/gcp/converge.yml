@@ -3,6 +3,6 @@
   hosts: all
   become: yes
   tasks:
-    - name: "Include docker-swarm-manager"
+    - name: "Include docker_swarm_manager"
       include_role:
-        name: "docker-swarm-manager"
+        name: "docker_swarm_manager"
