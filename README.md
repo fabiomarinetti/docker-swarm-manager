@@ -19,7 +19,7 @@ Role Variables
 Dependencies
 ------------
 
- - fabiomarinetti.docker_swarm_manager_docker_secured
+ - fabiomarinetti.docker_secured
 
 Example Playbook
 ----------------
