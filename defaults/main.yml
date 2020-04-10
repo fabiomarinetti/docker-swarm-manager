@@ -1,5 +1,5 @@
 ---
-# defaults file for fmarinetti.swarm-manager
+# defaults file for docker_swarm_manager.swarm-manager
 #
 # the network interface leave blank for default
 network_interface:

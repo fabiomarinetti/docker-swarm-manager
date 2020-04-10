@@ -35,13 +35,6 @@ galaxy_info:
       versions:
          - 18.04
          - 16.04
-  #   - 25
-  # - name: SomePlatform
-  #   versions:
-  #   - all
-  #   - 1.0
-  #   - 7
-  #   - 99.99
 
   galaxy_tags:
     - docker
@@ -54,4 +47,4 @@ galaxy_info:
     #       Maximum 20 tags per role.
 
 dependencies:
-  - fabiomarinetti.fmarinetti_docker_secured
+  - fabiomarinetti.docker_secured
