@@ -21,7 +21,7 @@ install:
   - ssh-keygen -P '' -f ${SSH_ID_FILE} -C ${SSH_USER}
 
   # install role prerequisites
-  - ansible-galaxy install nephelaiio.docker fabiomarinetti.fmarinetti_docker_secured
+  - ansible-galaxy install nephelaiio.docker fabiomarinetti.docker_secured
 
 script:
   - molecule --version
